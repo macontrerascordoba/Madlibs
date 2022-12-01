@@ -5,32 +5,35 @@ import random
 os.system("clear")
 print("MADLIBS\n")
 
-f = open("public/frases.txt", "r")
+f = open("public/sentences.txt", "r")
 lines = f.readlines()
 randomLine = random.randint(0, len(lines)-1)
-frase = lines[randomLine].strip()
+sentence = lines[randomLine].strip()
 
 solution = ""
 
 i = 0
 j = 0
-while i < len(frase):
+while i < len(sentence):
     word = ""
-    if frase[i] == "_":
-        while frase[i] != "(":
+    if sentence[i] == "_":
+        while sentence[i] != "(":
             i += 1
         i += 1
-        while frase[i] != ")":
-            word += frase[i]
+        while sentence[i] != ")":
+            word += sentence[i]
             i += 1
         i += 1
         word = input("Introduce a " + word + ": ")
         solution += word
         j += 1
     
-    solution += frase[i]
+    solution += sentence[i]
     i += 1
     
 os.system("clear")
 print("MADLIBS\n")
 print(solution)
+
+input("\nPress Enter to exit...")
+os.system("clear")
